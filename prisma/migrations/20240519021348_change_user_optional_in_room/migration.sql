@@ -1,0 +1,14 @@
+-- AlterTable
+ALTER TABLE "Room" ADD COLUMN     "freeCancel" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "hasAirConditioner" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "hasBarbeque" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "hasFreeLaundry" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "hasFreeParking" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "hasMountainView" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "hasShampoo" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "hasWifi" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "images" TEXT[],
+ADD COLUMN     "officeSpace" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "selfCheckIn" BOOLEAN NOT NULL DEFAULT false,
+ALTER COLUMN "bedroomDesc" DROP NOT NULL,
+ALTER COLUMN "userId" DROP NOT NULL;
