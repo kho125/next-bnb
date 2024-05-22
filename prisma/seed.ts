@@ -2,7 +2,8 @@ import { PrismaClient } from '@prisma/client'
 import { fakerKO as faker } from '@faker-js/faker'
 
 const prisma = new PrismaClient()
-const CATEGORY = [
+
+export const CATEGORY = [
   '전망좋은',
   '자연',
   '동굴',
@@ -47,7 +48,7 @@ async function seedUsers() {
 async function seedRooms() {
   const totalUsers = await prisma.user.findMany()
   if (totalUsers?.length > 1) {
-    Array.from({ length: 20 }, (v, i) => i).forEach(async () => {
+    Array.from({ length: 100 }, (v, i) => i).forEach(async () => {
       const randomUserIndex = Math.floor(Math.random() * totalUsers.length)
       const randomUser = totalUsers[randomUserIndex]
 
@@ -138,9 +139,25 @@ function getRandomLongtitude() {
     ?.toString()
 }
 
+async function seedFaqs() {
+  Array.from({ length: 10 }, (v, i) => i).forEach(async () => {
+    const faqData = {
+      title: faker.lorem.words(),
+      desc: faker.lorem.paragraph(),
+    }
+
+    const res = await prisma.faq.create({
+      data: faqData,
+    })
+
+    console.log(res)
+  })
+}
+
 async function main() {
   // await seedUsers()
   await seedRooms()
+  // await seedFaqs()
 }
 
 main()

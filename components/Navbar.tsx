@@ -23,7 +23,7 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 const menus = [
   { id: 1, title: '로그인', url: '/users/login' },
   { id: 1, title: '회원가입', url: '/users/signup' },
-  { id: 1, title: 'FAQ', url: '/users/faqs' },
+  { id: 1, title: 'FAQ', url: '/faqs' },
 ]
 
 export default function Navbar() {
@@ -37,7 +37,7 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        'border border-b-gray-20 w-full shadow-sm p-4 sm:px-10 flex justify-between items-center align-middle fixed top-0 bg-white',
+        'h-20 z-[20] border border-b-gray-20 w-full shadow-sm p-4 sm:px-10 flex justify-between items-center align-middle fixed top-0 bg-white',
         {
           '!h-44': showFilter === true,
           '!items-start': showFilter === true,
