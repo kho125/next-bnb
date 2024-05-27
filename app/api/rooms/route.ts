@@ -29,7 +29,7 @@ export async function GET(req: Request) {
     )
   }
 
-  const data = await prisma.faq.findMany()
+  const data = await prisma.room.findMany() // page값이 없으면 모든 room을 가져올 수 있도록 처리
 
   return NextResponse.json(data, {
     status: 200,
