@@ -9,7 +9,7 @@ import cn from 'classnames'
 export default function CategoryList() {
   const [filterValue, setFilterValue] = useRecoilState(filterState)
   return (
-    <div className="flex gap-6 fixed top-20 inset-x-0 mx-auto max-w-7xl overflow-x-scroll w-full flex-nowrap sm:pl-4 sm:pr-16 px-2 bg-white z-[1] mb-6">
+    <div className="flex gap-6 fixed top-20 inset-x-0 mx-auto max-w-7xl overflow-x-scroll flex-nowrap sm:pl-4 sm:pr-16 px-2 bg-white z-[1] mb-6">
       {CATEGORY_DATA?.map((category) => (
         <button
           // className="flex-none justify-center gap-3 py-4 w-16 text-center"
