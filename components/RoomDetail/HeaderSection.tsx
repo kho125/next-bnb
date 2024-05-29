@@ -11,6 +11,7 @@ import { CiShare1, CiHeart } from 'react-icons/ci'
 import { AiOutlineUnorderedList, AiOutlineCloseCircle } from 'react-icons/ai'
 import { BLUR_DATA_URL } from '@/constants'
 import ImageListModal from './ImageListModal'
+import ShareButton from './ShareButton'
 
 export default function HeaderSection({ data }: { data: RoomType }) {
   const [showImageModal, setShowImageModal] = useState<boolean>(false)
@@ -19,14 +20,9 @@ export default function HeaderSection({ data }: { data: RoomType }) {
     <>
       <h1 className="text-lg md:text-3xl font-medium px-4">{data?.title}</h1>
       <div className="w-full flex justify-between items-center px-4">
-        <div className="flex gap-2 underline text-xs md:text-sm mt-2">
-          {data?.address}
-        </div>
+        <div className="underline text-xs md:text-sm mt-2">{data?.address}</div>
         <div className="flex gap-2 text-xs md:text-sm mt-2">
-          <button className="flex gap-2 items-center" type="button">
-            <CiShare1 />
-            <span className="underline">공유하기</span>
-          </button>
+          <ShareButton data={data} />
           <button className="flex gap-2 items-center" type="button">
             <CiHeart />
             <span className="underline">저장</span>

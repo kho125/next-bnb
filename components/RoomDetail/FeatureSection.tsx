@@ -2,11 +2,17 @@ import { RoomType } from '@/interface'
 import BookingSection from './BookingSection'
 import Image from 'next/image'
 
-import { AiOutlineCheckCircle } from 'react-icons/ai'
-import { BsDoorClosed } from 'react-icons/bs'
+import { AiOutlineCheckCircle, AiOutlineWifi } from 'react-icons/ai'
+import { BsDoorClosed, BsFan } from 'react-icons/bs'
 import { AiOutlineDesktop } from 'react-icons/ai'
 
 import { FeatureDesc } from '@/constants'
+import cn from 'classnames'
+import { PiBathtub, PiMountainsDuotone } from 'react-icons/pi'
+import { MdOutlineLocalLaundryService } from 'react-icons/md'
+import { GiBarbecue } from 'react-icons/gi'
+import { LuParkingCircle } from 'react-icons/lu'
+import CalendarSection from './CalendarSection'
 
 export default function FeatureSection({ data }: { data: RoomType }) {
   return (
@@ -71,6 +77,121 @@ export default function FeatureSection({ data }: { data: RoomType }) {
         <div className="px-4 py-8 border-b border-gray-300 leading-8 text-gray-800">
           <h1 className="font-semibold text-xl md-2">숙박 장소</h1>
           {data?.bedroomDesc ?? '설명이 없습니다.'}
+        </div>
+        <div className="px-4 py-8 border-b border-gray-300 leading-8 text-gray-800">
+          <h1 className="font-semibold text-xl md-2">숙소 편의시설</h1>
+          <div className="grid md:grid-cols-2 gap-1">
+            <div className="flex gap-2 items-center mt-4">
+              <AiOutlineCheckCircle className="text-lg-md:text-2xl" />
+              <span
+                className={cn('text-gray-600', {
+                  'line-through': !data?.freeCancel,
+                })}
+              >
+                무료 취소
+              </span>
+            </div>
+            <div className="flex gap-2 items-center mt-4">
+              <BsDoorClosed className="text-lg-md:text-2xl" />
+              <span
+                className={cn('text-gray-600', {
+                  'line-through': !data?.selfCheckIn,
+                })}
+              >
+                셀프 체크인
+              </span>
+            </div>
+            <div className="flex gap-2 items-center mt-4">
+              <AiOutlineDesktop className="text-lg-md:text-2xl" />
+              <span
+                className={cn('text-gray-600', {
+                  'line-through': !data?.officeSpace,
+                })}
+              >
+                셀프 체크인
+              </span>
+            </div>
+            <div className="flex gap-2 items-center mt-4">
+              <PiMountainsDuotone className="text-lg-md:text-2xl" />
+              <span
+                className={cn('text-gray-600', {
+                  'line-through': !data?.hasMountainView,
+                })}
+              >
+                마운틴 뷰
+              </span>
+            </div>
+            <div className="flex gap-2 items-center mt-4">
+              <PiBathtub className="text-lg-md:text-2xl" />
+              <span
+                className={cn('text-gray-600', {
+                  'line-through': !data?.hasShampoo,
+                })}
+              >
+                샴푸 및 욕실 용품
+              </span>
+            </div>
+            <div className="flex gap-2 items-center mt-4">
+              <MdOutlineLocalLaundryService className="text-lg-md:text-2xl" />
+              <span
+                className={cn('text-gray-600', {
+                  'line-through': !data?.hasFreeLaundry,
+                })}
+              >
+                무료 세탁
+              </span>
+            </div>
+            <div className="flex gap-2 items-center mt-4">
+              <BsFan className="text-lg-md:text-2xl" />
+              <span
+                className={cn('text-gray-600', {
+                  'line-through': !data?.hasAirConditioner,
+                })}
+              >
+                에어컨
+              </span>
+            </div>
+            <div className="flex gap-2 items-center mt-4">
+              <AiOutlineWifi className="text-lg-md:text-2xl" />
+              <span
+                className={cn('text-gray-600', {
+                  'line-through': !data?.hasWifi,
+                })}
+              >
+                무료 와이파이
+              </span>
+            </div>
+            <div className="flex gap-2 items-center mt-4">
+              <GiBarbecue className="text-lg-md:text-2xl" />
+              <span
+                className={cn('text-gray-600', {
+                  'line-through': !data?.hasBarbeque,
+                })}
+              >
+                바베큐 시설
+              </span>
+            </div>
+            <div className="flex gap-2 items-center mt-4">
+              <LuParkingCircle className="text-lg-md:text-2xl" />
+              <span
+                className={cn('text-gray-600', {
+                  'line-through': !data?.hasFreeParking,
+                })}
+              >
+                무료 주차
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="px-4 py-8 border-b border-gray-300 leading-8 text-gray-800">
+          <h1 className="font-semibold text-xl mb-2">캘린더</h1>
+          <CalendarSection />
+        </div>
+        <div className="px-4 py-8 border-b border-gray-300 leading-8 text-gray-800">
+          <h1 className="font-semibold text-xl mb-2">후기</h1>
+          <div className="mt-4 rounded-lg p-5 border border-gray-300">
+            후기가 들어갑니다
+          </div>
         </div>
       </div>
       <BookingSection data={data} />
